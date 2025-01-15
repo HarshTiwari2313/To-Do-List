@@ -1,57 +1,103 @@
-body{
+body {
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-   
     align-items: center;
     height: 100vh;
     background-color: black;
     color: rgb(2, 2, 2);
+    
 }
-.container{
+
+.container {
     border: none;
     border-radius: 10px;
     background-color: aqua;
-    height:auto;
-    width: 70vh;
+    height: auto;
+    width:80%; /* मोबाइल के लिए अधिक फ्लेक्सिबल */
+    max-width: 70vh; /* टैबलेट पर अच्छे लेआउट के लिए */
     box-shadow: 4px 5px 6px blue;
+    box-sizing: border-box;
 }
-.header{
+
+.header {
     text-align: center;
-    font-size: 1.7em;
+    font-size: 1.5em; /* छोटे स्क्रीन के लिए थोड़ा कम साइज़ */
     font-weight: 900;
     border-bottom: 0.5px solid black;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
-.addTask{
+
+.addTask {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column; /* मोबाइल के लिए वर्टिकल लेआउट */
+    align-items: center;
 }
-#inputTask{
+
+#inputTask {
     padding: 7px;
     border-radius: 10px;
     border-style: none;
-    width: 300px;
-    
+    width: 90%; /* मोबाइल के लिए बेहतर फिटिंग */
+    margin-bottom: 10px; /* नीचे थोड़ा स्पेस */
 }
-Button{
+
+Button {
     border-radius: 10px;
     font-weight: 600;
     background-color: rgb(241, 247, 247);
+    padding: 10px;
+    width: auto;
 }
-Button:hover{
+
+Button:hover {
     background-color: rgb(90, 241, 85);
-    box-shadow: 2px 2px 2px ;
-   
+    box-shadow: 2px 2px 2px;
 }
-li{
+
+li {
     display: flex;
     justify-content: space-between;
-    
     border-radius: 5px;
     padding: 10px;
-    width: 80%;
+    width: 90%; /* मोबाइल के लिए बेहतर फिटिंग */
     margin-bottom: 7px;
 }
 
+/* टैबलेट और मोबाइल के लिए मीडिया क्वेरी */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 80%; /* टैबलेट के लिए थोड़ा बड़ा */
+    }
+
+    .header {
+        font-size: 1.4em;
+    }
+
+    #inputTask {
+        width: 80%; /* टैबलेट पर थोड़ा बड़ा */
+    }
+
+    li {
+        width: 85%; /* टैबलेट के लिए एडजस्टेड चौड़ाई */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 95%; /* छोटे मोबाइल स्क्रीन के लिए */
+    }
+
+    .header {
+        font-size: 1.2em;
+    }
+
+    #inputTask {
+        width: 100%; /* मोबाइल स्क्रीन पर पूरा */
+    }
+
+    li {
+        width: 95%; /* छोटे स्क्रीन के लिए फिटिंग */
+    }
+}
